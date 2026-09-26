@@ -429,6 +429,22 @@ export const WeddingMainPage: React.FC<WeddingMainPageProps> = ({
       </section>
 
       {/* ======================================================== */}
+      {/* WEDDING PHOTO INTERLUDE SECTION                          */}
+      {/* ======================================================== */}
+      <section className="relative w-full h-[45vh] sm:h-[60vh] min-h-[360px] max-h-[640px] overflow-hidden bg-stone-950">
+        <img
+          alt="Wedding celebration"
+          className="w-full h-full object-cover object-center filter brightness-[0.92] hover:scale-105 transition-transform duration-1000 ease-out"
+          src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80"
+          onError={(e) => {
+            e.currentTarget.src = '/assets/images/couple-portrait.jpg';
+          }}
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35 pointer-events-none" />
+      </section>
+
+      {/* ======================================================== */}
       {/* VENUES & LOCATIONS SECTION                               */}
       {/* ======================================================== */}
       <section className="py-20 lg:py-28 bg-red-deep" id="venues">
@@ -641,19 +657,19 @@ export const WeddingMainPage: React.FC<WeddingMainPageProps> = ({
       {/* ======================================================== */}
       {/* FAQS SECTION                                             */}
       {/* ======================================================== */}
-      <section className="py-20 lg:py-28 relative bg-beige-primary" id="faqs">
+      <section className="py-20 lg:py-28 relative bg-red-deep" id="faqs">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="font-script text-3xl sm:text-5xl text-blue-primary mb-1">Questions &amp; Details</p>
-            <h2 className="font-editorial text-xl sm:text-3xl uppercase tracking-widest text-stone-900">
+            <p className="font-script text-3xl sm:text-5xl text-rose-200 mb-1">Questions &amp; Details</p>
+            <h2 className="font-editorial text-xl sm:text-3xl uppercase tracking-widest text-white">
               Frequently Asked Questions
             </h2>
-            <div className="w-12 h-0.5 bg-red-primary/30 mx-auto mt-3"></div>
+            <div className="w-12 h-0.5 bg-rose-200/50 mx-auto mt-3"></div>
           </div>
 
           <div className="space-y-4 max-w-2xl mx-auto">
             {/* FAQ Item 1 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-md border border-stone-200 flex flex-col justify-between hover:border-red-primary/30 transition">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl border border-stone-200 flex flex-col justify-between hover:border-rose-200/60 transition">
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <span className="w-9 h-9 rounded-full bg-red-primary text-white shadow-sm flex items-center justify-center shrink-0">
@@ -670,7 +686,7 @@ export const WeddingMainPage: React.FC<WeddingMainPageProps> = ({
             </div>
 
             {/* FAQ Item 2 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-md border border-stone-200 flex flex-col justify-between hover:border-red-primary/30 transition">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl border border-stone-200 flex flex-col justify-between hover:border-rose-200/60 transition">
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <span className="w-9 h-9 rounded-full bg-red-primary text-white shadow-sm flex items-center justify-center shrink-0">
@@ -687,7 +703,7 @@ export const WeddingMainPage: React.FC<WeddingMainPageProps> = ({
             </div>
 
             {/* FAQ Item 3 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-md border border-stone-200 flex flex-col justify-between hover:border-red-primary/30 transition">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl border border-stone-200 flex flex-col justify-between hover:border-rose-200/60 transition">
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <span className="w-9 h-9 rounded-full bg-red-primary text-white shadow-sm flex items-center justify-center shrink-0">
@@ -704,7 +720,7 @@ export const WeddingMainPage: React.FC<WeddingMainPageProps> = ({
             </div>
 
             {/* FAQ Item 4 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-md border border-stone-200 flex flex-col justify-between hover:border-red-primary/30 transition">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl border border-stone-200 flex flex-col justify-between hover:border-rose-200/60 transition">
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <span className="w-9 h-9 rounded-full bg-red-primary text-white shadow-sm flex items-center justify-center shrink-0">
@@ -734,7 +750,7 @@ export const WeddingMainPage: React.FC<WeddingMainPageProps> = ({
       {/* ======================================================== */}
       {/* RSVP SECTION (REPLACES FOOTER & MODAL WITH IN-PAGE FORM) */}
       {/* ======================================================== */}
-      <section id="rsvp-section" className="py-20 lg:py-28 relative bg-beige-paper border-t border-beige-secondary/80">
+      <section id="rsvp-section" className="py-20 lg:py-28 relative bg-blue-light border-t border-blue-border">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-8">
@@ -748,7 +764,7 @@ export const WeddingMainPage: React.FC<WeddingMainPageProps> = ({
               Wedding RSVP
             </h2>
             <div className="w-16 h-0.5 bg-red-primary/30 mx-auto mt-3 mb-4"></div>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-beige-secondary text-stone-700 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-border text-stone-700 shadow-sm">
               <span className="material-symbols-outlined text-sm text-red-primary shrink-0">stars</span>
               <p className="text-xs sm:text-sm font-label">
                 Reserved for <strong className="text-stone-900">{party.party_name}</strong> (
