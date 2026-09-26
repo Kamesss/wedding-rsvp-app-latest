@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  /* Red / Wine tokens */
+  --color-red-primary: #800020;
+  --color-red-secondary: #581825;
+  --color-red-deep: #520E17;
+  --color-red-accent: #6C121D;
+  --color-red-vibrant: #9E192D;
+  --color-red-darkest: #34080D;
+  --color-red-night: #150204;
+
+  /* Blue tokens */
+  --color-blue-primary: #2B6187;
+  --color-blue-secondary: #7BB2D9;
+  --color-blue-light: #E0F0F8;
+  --color-blue-border: #C2E0F1;
+  --color-blue-subtle: #94C5E3;
+  --color-blue-dark: #1D415C;
+  --color-blue-hover: #5F9EC5;
+  --color-blue-sky: #9FC4E2;
+  --color-blue-pale: #DFEFFB;
+  --color-blue-mist: #C6E0F5;
+  --color-blue-soft: #ACD0ED;
+  --color-blue-ice: #C4DEF3;
+  --color-blue-powder: #A8CEEB;
+  --color-blue-glacier: #B3D4EE;
+  --color-blue-frost: #C8E1F5;
+  --color-blue-tint: #DBEDFA;
+
+  /* Beige / Cream / Warm Neutral tokens */
+  --color-beige-primary: #F5ECE5;
+  --color-beige-secondary: #EAD7C8;
+  --color-beige-paper: #FAF6F2;
+  --color-beige-bg: #FCFAF7;
+  --color-beige-text: #4A3E39;
+  --color-beige-muted: #6A5C54;
+  --color-beige-dark: #D1BEAA;
+  --color-beige-border: #D8BCAB;
+  --color-beige-warm: #2D2421;
+  --color-beige-linen: #FBF7F2;
+  --color-beige-sand: #F3E9DF;
+  --color-beige-taupe: #E9DBD0;
+  --color-beige-cream: #F7EFE8;
+  --color-beige-oat: #EADBCE;
+  --color-beige-pearl: #FAF5EE;
+  --color-beige-ivory: #FFFCF9;
+}
+
+@layer base {
+  :root {
+    --font-script: "Euphoria Script", cursive;
+    --font-editorial: "Fraunces", Georgia, serif;
+    --font-serif: "Playfair Display", Georgia, serif;
+    --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-label: "Quicksand", "Plus Jakarta Sans", sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-beige-bg);
+    color: var(--color-beige-warm);
+    overflow-x: hidden;
+  }
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+.font-label {
+  font-family: var(--font-label);
+}
+
+.font-sans-ui {
+  font-family: var(--font-sans);
+}
+
+.arched-polaroid {
+  border-radius: 9999px 9999px 1.25rem 1.25rem;
+}
+
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.paper-shadow {
+  box-shadow: 0 20px 45px -12px rgba(74, 62, 57, 0.18), 0 6px 16px -4px rgba(74, 62, 57, 0.08);
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-beige-dark);
+  border-radius: 9999px;
+}
+

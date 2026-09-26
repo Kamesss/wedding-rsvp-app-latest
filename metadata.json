@@ -1,0 +1,6 @@
+{
+  "name": "James & Amber — Wedding RSVP Portal",
+  "description": "Guest portal and RSVP invitation app with Cloudflare D1 SQLite database integration for James & Amber's wedding.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

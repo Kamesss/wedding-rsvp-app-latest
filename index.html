@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <script>
+      // Fix: Ensure window.fetch has a setter so scripts like formdata-polyfill / Vite clients do not throw
+      // "Cannot set property fetch of #<Window> which has only a getter" when iframe wrappers define getter-only fetch.
+      (function() {
+        try {
+          let _customFetch = null;
+          const currentDesc = Object.getOwnPropertyDescriptor(window, 'fetch');
+          if (currentDesc && currentDesc.get && !currentDesc.set) {
+            const origGet = currentDesc.get;
+            Object.defineProperty(window, 'fetch', {
+              configurable: true,
+              enumerable: true,
+              get: function() {
+                return _customFetch || origGet.call(this);
+              },
+              set: function(val) {
+                _customFetch = val;
+              }
+            });
+          }
+
+          const origDefineProperty = Object.defineProperty;
+          Object.defineProperty = function(obj, prop, descriptor) {
+            if ((obj === window || obj === globalThis) && prop === 'fetch') {
+              const origGet = descriptor && descriptor.get;
+              return origDefineProperty.call(this, obj, prop, {
+                configurable: true,
+                enumerable: true,
+                get: function() {
+                  return _customFetch || (origGet ? origGet.call(this) : window.fetch);
+                },
+                set: function(val) {
+                  _customFetch = val;
+                }
+              });
+            }
+            return origDefineProperty.apply(this, arguments);
+          };
+        } catch (err) {
+          console.warn('Fetch setter patch error:', err);
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James & Amber — Wedding RSVP Portal</title>
+    <meta name="description" content="Guest portal and RSVP invitation app with Cloudflare D1 SQLite database integration for James & Amber's wedding." />
+    <meta property="og:title" content="James & Amber — Wedding RSVP Portal" />
+    <meta property="og:description" content="Guest portal and RSVP invitation app with Cloudflare D1 SQLite database integration for James & Amber's wedding." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  </head>
+  <body class="bg-[#FCFAF7] text-stone-800 antialiased selection:bg-[#800020] selection:text-white min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

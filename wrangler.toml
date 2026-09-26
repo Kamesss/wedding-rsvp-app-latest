@@ -1,0 +1,18 @@
+# Cloudflare Workers Configuration for Wedding RSVP App
+name = "wedding-rsvp-app"
+main = "worker.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Cloudflare Workers Static Assets for Vite SPA
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+# Cloudflare D1 SQLite Database Binding
+# PASTE YOUR D1 DATABASE UUID BELOW (from: npx wrangler d1 list)
+[[d1_databases]]
+binding = "DB"
+database_name = "wedding-rsvp-db"
+database_id = "510d43cb-2022-44de-a5b9-32be1fe65e1f"
