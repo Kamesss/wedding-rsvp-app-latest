@@ -222,14 +222,6 @@ export const WeddingMainPage: React.FC<WeddingMainPageProps> = ({
 
         {/* Centered Editorial Text */}
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto flex flex-col items-center">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="h-px w-8 bg-white/60"></span>
-            <span className="text-xs uppercase tracking-[0.35em] font-label font-medium text-stone-200">
-              Save Our Date
-            </span>
-            <span className="h-px w-8 bg-white/60"></span>
-          </div>
-
           <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light tracking-wide text-white uppercase mb-1">
             James <span className="font-serif italic font-normal text-white lowercase">&amp;</span> Amber
           </h1>
@@ -431,7 +423,7 @@ export const WeddingMainPage: React.FC<WeddingMainPageProps> = ({
       {/* ======================================================== */}
       {/* WEDDING PHOTO INTERLUDE SECTION                          */}
       {/* ======================================================== */}
-      <section className="relative w-full h-[45vh] sm:h-[60vh] min-h-[360px] max-h-[640px] overflow-hidden bg-stone-950">
+      <section className="relative w-full h-[60vh] sm:h-[75vh] lg:h-[82vh] min-h-[480px] max-h-[820px] overflow-hidden bg-stone-950">
         <img
           alt="Wedding celebration"
           className="w-full h-full object-cover object-center filter brightness-[0.92] hover:scale-105 transition-transform duration-1000 ease-out"

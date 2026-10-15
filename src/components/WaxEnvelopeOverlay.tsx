@@ -85,8 +85,8 @@ export const WaxEnvelopeOverlay: React.FC<WaxEnvelopeOverlayProps> = ({
     }
   }, [step, onOpenComplete]);
 
-  const handleProceedImmediately = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleProceedImmediately = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     setIsFadingOut(true);
     setTimeout(() => {
       onOpenComplete();
@@ -95,7 +95,10 @@ export const WaxEnvelopeOverlay: React.FC<WaxEnvelopeOverlayProps> = ({
 
   return (
     <div
+      onClick={isCentered ? () => handleProceedImmediately() : undefined}
       className={`fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-hidden overscroll-none touch-none transition-all duration-1000 ${
+        isCentered ? 'cursor-pointer' : ''
+      } ${
         isFadingOut ? 'opacity-0 pointer-events-none scale-105' : 'opacity-100'
       }`}
       style={{
@@ -422,24 +425,6 @@ export const WaxEnvelopeOverlay: React.FC<WaxEnvelopeOverlayProps> = ({
             </div>
           </div>
         </div>
-
-        {/* Action Prompt once card is centered & readable */}
-        {isCentered && (
-          <div className="mt-20 sm:mt-28 z-[60] flex flex-col items-center gap-2 animate-fadeIn">
-            <button
-              onClick={handleProceedImmediately}
-              className="px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-red-primary hover:bg-red-secondary text-white font-label text-[11px] sm:text-xs uppercase tracking-widest font-bold shadow-2xl hover:shadow-rose-950/50 transition-all duration-300 flex items-center gap-2 cursor-pointer group hover:scale-105 active:scale-95"
-            >
-              <span>View Wedding Schedule &amp; RSVP</span>
-              <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
-                arrow_forward
-              </span>
-            </button>
-            <p className="font-label text-[9px] sm:text-[10px] uppercase tracking-widest text-rose-200/60 font-light">
-              Continuing automatically in a few moments...
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );
